@@ -5,9 +5,9 @@ import uuid
 import datetime
 import json
 
-class BaseModel:
+class BaseModel():
 
-    def __init__(id, created_at, updated_at):
+    def __init__(self, *args, **kwargs):
         """ Base Init.
 
         Args:
@@ -15,14 +15,20 @@ class BaseModel:
             created_at: creation time of instance
             updated_at: modifcation time of the instance
         """
-        self.id = str(uuid.uuid4())
-        self.created_at = datetime.datetime.now()
-        self.updated_at = datetime.datetime.now()
+        if kwargs:
+            self.id = kwargs['id']
+            self.created_at = datetime.datetime.strptime(kwargs['created_at'],'%Y-%m-%d %H:%M:%S.%f')
+            self.updated_at = datetime.datetime.strptime(kwargs['updated_at'],'%Y-%m-%d %H:%M:%S.%f')
+
+        else:
+            self.id = str(uuid.uuid4())
+            self.created_at = datetime.datetime.now()
+            self.updated_at = datetime.datetime.now()
 
     def __str__(self):
         """return string representation of the object """
         return "[{}] ({}) {}".format(
-                self.__class.__name__, self.id, self.__dict__)
+                self.__class__.__name__, self.id, self.__dict__)
 
     def save(self):
         """ updates the public instance attribute updated_at with the
@@ -32,9 +38,9 @@ class BaseModel:
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values of the instance """
-        self.__dict__['__class__'] = self.__class.__name__
-        self.__dict__['created_at'] = self.created_at.isofromat()
-        self.__dict__['updated_at'] = self.updated_at.isofromat()
+        self.__dict__['__class__'] = self.__class__.__name__
+        self.__dict__['created_at'] = self.created_at.isoformat()
+        self.__dict__['updated_at'] = self.updated_at.isoformat()
         return self.__dict__
 
 
