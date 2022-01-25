@@ -32,8 +32,8 @@ def save(self):
 def to_dict(self):
     """ returns a dictionary containing all keys/values of the instance """
     self.__dict__['__class__'] = self.__class.__name__
-    self.__dict__['created_at'] = datetime.isofromat(self.created_at)
-    self.__dict__['updated_at'] = datetime.isofromat(self.updated_at)
+    self.__dict__['created_at'] = self.created_at.isofromat()
+    self.__dict__['updated_at'] = self.updated_at.isofromat()
     return self.__dict__
 
 
