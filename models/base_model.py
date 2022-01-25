@@ -17,8 +17,8 @@ class BaseModel():
         """
         if kwargs:
             self.id = kwargs['id']
-            self.created_at = datetime.datetime.strptime(kwargs['created_at'],'%Y-%m-%d %H:%M:%S.%f')
-            self.updated_at = datetime.datetime.strptime(kwargs['updated_at'],'%Y-%m-%d %H:%M:%S.%f')
+            self.created_at = datetime.datetime.strptime(kwargs['created_at'],'%Y-%m-%dT%H:%M:%S.%f')
+            self.updated_at = datetime.datetime.strptime(kwargs['updated_at'],'%Y-%m-%dT%H:%M:%S.%f')
 
         else:
             self.id = str(uuid.uuid4())
