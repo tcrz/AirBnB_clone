@@ -6,6 +6,7 @@ from datetime import datetime
 import uuid
 from models import storage
 
+
 class BaseModel():
     """Base Model"""
     def __init__(self, *args, **kwargs):
@@ -32,7 +33,7 @@ class BaseModel():
         with the current datetime"""
         self.updated_at = datetime.now()
         storage.save()
-        
+
     def to_dict(self):
         """returns a dictionary containing all keys/values
         of __dict__ of the instance"""

@@ -7,7 +7,6 @@ import os
 from datetime import datetime
 
 
-
 class FileStorage():
     """File Storage class"""
     __file_path = 'file.json'
