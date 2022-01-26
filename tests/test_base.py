@@ -32,7 +32,7 @@ class TestBaseClass(unittest.TestCase):
         my_model_json = my_model.to_dict()
         my_new_model = BaseModel(**my_model_json)
         self.assertFalse(my_model is my_new_model)
-
+        #unfinished
 
     def test_save_method(self):
         """test save method"""
@@ -42,6 +42,8 @@ class TestBaseClass(unittest.TestCase):
         my_model.save()
         update_time = my_model.updated_at
         self.assertEqual(update_time, my_model.updated_at)
+        with self.assertRaises(TypeError):
+            my_model.save(None)
 
     def test_str_method(self):
         temp_stdout = StringIO()
@@ -52,11 +54,11 @@ class TestBaseClass(unittest.TestCase):
         output = temp_stdout.getvalue().strip()
         self.assertEqual(output, obj_print)
 
-    # def test_to_dict(self):
-    #     my_model = BaseModel()
-    #     self.assertTrue(type(my_model.to_dict()) is dict)
-    #     objdict = my_model.to_dict()
-    #     self.assertEqual(objdict, my_model.to_dict())
+    def test_to_dict(self):
+        my_model = BaseModel()
+        self.assertTrue(type(my_model.to_dict()) is dict)
+        objdict = my_model.to_dict()
+        self.assertEqual(objdict, my_model.to_dict())
 
 
 if __name__ == '__main__':
