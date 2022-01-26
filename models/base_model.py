@@ -3,7 +3,7 @@
 
 import uuid
 import datetime
-import json
+from . import storage
 
 class BaseModel():
 
@@ -35,6 +35,7 @@ class BaseModel():
         current datetime 
         """
         self.updated_at = datetime.datetime.now()
+        storage.save()
 
     def to_dict(self):
         """ returns a dictionary containing all keys/values of the instance """
