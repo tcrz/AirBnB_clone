@@ -23,19 +23,19 @@ class FileStorage():
 
     def save(self):
         """serializes __objects to the JSON file (path: __file_path)"""
-        if os.path.exists(FileStorage.__file_path):
-            new_data = dict((k, v.to_dict())
-                            for k, v in FileStorage.__objects.items())
-            with open(FileStorage.__file_path) as file:
-                obj_data = json.load(file)
-                obj_data.update(new_data)
-            with open(FileStorage.__file_path, mode='w') as file:
-                json.dump(obj_data, file, indent=4)
-        else:
-            obj_data = dict((k, v.to_dict())
-                            for k, v in FileStorage.__objects.items())
-            with open(FileStorage.__file_path, mode='w') as file:
-                json.dump(obj_data, file, indent=4)
+        # if os.path.exists(FileStorage.__file_path):
+        new_data = dict((k, v.to_dict())
+                        for k, v in FileStorage.__objects.items())
+        # with open(FileStorage.__file_path) as file:
+        #     obj_data = json.load(file)
+        #     obj_data.update(new_data)
+        #     with open(FileStorage.__file_path, mode='w') as file:
+        #         json.dump(new_data, file, indent=4)
+        # else:
+        #     obj_data = dict((k, v.to_dict())
+        #                     for k, v in FileStorage.__objects.items())
+        with open(FileStorage.__file_path, mode='w') as file:
+            json.dump(new_data, file, indent=4)
 
     def reload(self):
         """deserializes the JSON file to __objects
@@ -45,4 +45,6 @@ class FileStorage():
             with open(FileStorage.__file_path) as file:
                 json_str = json.load(file)
             for k, v in json_str.items():
-                FileStorage.__objects[k] =  BaseModel(**v)
+                FileStorage.__objects[k] = BaseModel(**v)
+        else:
+            pass
