@@ -66,3 +66,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertTrue(type(city.to_dict()) is dict)
         objdict = city.to_dict()
         self.assertEqual(objdict, city.to_dict())
+
+
+if __name__ == '__main__':
+    unittest.main()

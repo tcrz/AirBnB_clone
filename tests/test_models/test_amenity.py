@@ -66,3 +66,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertTrue(type(amenity.to_dict()) is dict)
         objdict = amenity.to_dict()
         self.assertEqual(objdict, amenity.to_dict())
+
+
+if __name__ == '__main__':
+    unittest.main()
