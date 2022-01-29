@@ -11,6 +11,7 @@ from io import StringIO
 
 class TestBaseClass(unittest.TestCase):
     def test_classtype(self):
+        """tests class type"""
         my_model = BaseModel()
         self.assertIsInstance(my_model, BaseModel)
 
@@ -26,6 +27,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(updated_time, my_model.updated_at)
 
     def test_attr_kwargs(self):
+        """tests instance init with kwargs"""
         my_model = BaseModel()
         my_model.name = "New Model"
         my_model.my_number = 201
@@ -48,6 +50,7 @@ class TestBaseClass(unittest.TestCase):
             my_model.save(None)
 
     def test_str_method(self):
+        """test str method"""
         temp_stdout = StringIO()
         with contextlib.redirect_stdout(temp_stdout):
             my_model = BaseModel()
@@ -58,6 +61,7 @@ class TestBaseClass(unittest.TestCase):
         self.assertEqual(output, obj_print)
 
     def test_to_dict(self):
+        """test to_dict method"""
         my_model = BaseModel()
         self.assertTrue(type(my_model.to_dict()) is dict)
         objdict = my_model.to_dict()
