@@ -10,11 +10,10 @@ import unittest
 
 class TestBaseClass(unittest.TestCase):
     @classmethod
-    def setUpClass(cls):
-        FileStorage._FileStorage__file_path = "FStest.json"
-        cls.model = BaseModel()
-        cls.new_model = BaseModel()
-        cls.store = FileStorage()
+    def setUp(self):
+        self.model = BaseModel()
+        self.new_model = BaseModel()
+        self.store = FileStorage()
 
     def test_all(self):
         """test 'all' method attributes"""
