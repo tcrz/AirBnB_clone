@@ -4,6 +4,7 @@ The Console
 """
 import cmd
 import shlex
+import re
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
@@ -34,6 +35,7 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, arg):
         arg_list = arg.split(".")
+        arg_list2 = re.split(r"[,().]", arg)
         objs_list = []
         count = 0
         all_objs = storage.all()
@@ -49,6 +51,11 @@ class HBNBCommand(cmd.Cmd):
                 if isinstance(obj, classname):
                     count += 1
             print(count)
+        elif arg_list2[0] in globals() and arg_list2[1] == "show" and \
+                arg_list2[2]:
+            obj_key = arg_list2[0] + '.' + arg_list2[2]
+            all_objs = storage.all()
+            print(all_objs[obj_key])
         else:
             return cmd.Cmd.default(self, arg)
 
