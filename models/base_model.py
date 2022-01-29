@@ -11,6 +11,8 @@ class BaseModel():
     """Base Model"""
     def __init__(self, *args, **kwargs):
         """initialize instance of BaseModel class"""
+        if args: 
+            pass
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'updated_at':
