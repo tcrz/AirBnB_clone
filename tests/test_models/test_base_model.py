@@ -34,7 +34,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertFalse(my_model is my_new_model)
         self.assertEqual(my_new_model.name, "New Model")
         self.assertEqual(my_new_model.my_number, 201)
-        
         # unfinished
 
     def test_save_method(self):
