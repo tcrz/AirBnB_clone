@@ -59,6 +59,15 @@ class HBNBCommand(cmd.Cmd):
                 print(all_objs[obj_key])
             except KeyError:
                 print("** no instance found **")
+        elif arg_list2[0] in globals() and arg_list2[1] == "destroy" and \
+                arg_list2[2]:
+            try:
+                obj_key = arg_list2[0] + '.' + shlex.split(arg_list2[2])[0]
+                all_objs = storage.all()
+                del all_objs[obj_key]
+                storage.save()
+            except KeyError:
+                print("** no instance found **")
         else:
             return cmd.Cmd.default(self, arg)
 
