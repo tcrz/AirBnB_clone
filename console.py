@@ -32,6 +32,19 @@ class HBNBCommand(cmd.Cmd):
         """Exits the cmd interpreter"""
         quit()
 
+    def default(self, arg):
+        arg_list = arg.split(".")
+        if arg_list[0] in globals() and arg_list[1] == "all()":
+            objs_list = []
+            all_objs = storage.all()
+            classname = globals()[arg_list[0]]
+            for obj in all_objs.values():
+                if isinstance(obj, classname):
+                    objs_list.append(str(obj))
+            print(objs_list)
+        else:
+            return cmd.Cmd.default(self, arg)
+
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it amd prints its id"""
         if arg:
