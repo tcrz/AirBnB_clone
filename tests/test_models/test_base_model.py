@@ -14,25 +14,28 @@ class TestBaseClass(unittest.TestCase):
         my_model = BaseModel()
         self.assertIsInstance(my_model, BaseModel)
 
-
-    def test_baseclass_attr(self):
+    def test_attr(self):
         """test attributes"""
         my_model = BaseModel()
         uuid_val = my_model.id
         self.assertEqual(my_model.id, uuid_val)
+        self.assertIsInstance(my_model.id, str)
         created_time = my_model.created_at
         updated_time = my_model.updated_at
         self.assertEqual(created_time, my_model.created_at)
         self.assertEqual(updated_time, my_model.updated_at)
 
-    def test_baseclass_attrkwargs(self):
+    def test_attr_kwargs(self):
         my_model = BaseModel()
         my_model.name = "New Model"
         my_model.my_number = 201
         my_model_json = my_model.to_dict()
         my_new_model = BaseModel(**my_model_json)
         self.assertFalse(my_model is my_new_model)
-        #unfinished
+        self.assertEqual(my_new_model.name, "New Model")
+        self.assertEqual(my_new_model.my_number, 201)
+        
+        # unfinished
 
     def test_save_method(self):
         """test save method"""
@@ -52,6 +55,7 @@ class TestBaseClass(unittest.TestCase):
             obj_print = my_model.__str__()
             print(my_model)
         output = temp_stdout.getvalue().strip()
+        # print(output)
         self.assertEqual(output, obj_print)
 
     def test_to_dict(self):

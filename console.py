@@ -3,8 +3,10 @@
 The Console
 """
 import cmd
+import shlex
 from models.base_model import BaseModel
 from models import storage
+from models.user import User
 
 
 class HBNBCommand(cmd.Cmd):
@@ -96,7 +98,7 @@ or not on the class name."""
     def do_update(self, arg):
         """Updates an instance based on the class name and id
 by adding or updating attribute (saves the changes into the JSON file)."""
-        args = arg.split()
+        args = shlex.split(arg)
         all_objs = storage.all()
         if args:
             if len(args) == 1:
