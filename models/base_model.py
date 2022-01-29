@@ -10,7 +10,7 @@ from models import storage
 class BaseModel():
     """Base Model"""
     def __init__(self, *args, **kwargs):
-        # """initialize instance of BaseModel class"""
+        """initialize instance of BaseModel class"""
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'updated_at':
@@ -26,19 +26,19 @@ class BaseModel():
             storage.new(self)
 
     def __str__(self):
-        # """class object represented as a string"""
+        """class object represented as a string"""
         return "[{}] ({}) {}".format(self.__class__.__name__,
                                      self.id, self.__dict__)
 
     def save(self):
-        # """updates the public instance attribute 'updated_at'
-        # with the current datetime"""
+        """updates the public instance attribute 'updated_at'
+        with the current datetime"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
-        # """returns a dictionary containing all keys/values
-        # of __dict__ of the instance"""
+        """returns a dictionary containing all keys/values
+        of __dict__ of the instance"""
         obj_dict = {}
         obj_dict.update(self.__dict__)
         obj_dict['__class__'] = self.__class__.__name__
