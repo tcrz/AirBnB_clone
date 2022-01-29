@@ -7,10 +7,18 @@ import shlex
 from models.base_model import BaseModel
 from models import storage
 from models.user import User
+from models.state import State
+from models.city import City
+from models.amenity import Amenity
+from models.place import Place
+from models.review import Review
 
 
 class HBNBCommand(cmd.Cmd):
     prompt = '(hbnb) '
+    classes = {'BaseModel': BaseModel, 'User': User, 'State': State,
+               'City': City, 'Amenity': Amenity, 'Place': Place,
+               'Review': Review}
 
     def emptyline(self):
         pass
@@ -27,10 +35,12 @@ class HBNBCommand(cmd.Cmd):
     def do_create(self, arg):
         """Creates a new instance of BaseModel, saves it amd prints its id"""
         if arg:
-            if arg in globals():
-                classname = globals()[arg]
-                new_obj = classname()
-                new_obj.save()
+            if arg in self.classes:
+                # classname = globals()[arg]
+                if arg in self.classes:
+                    new_obj = self.classes[arg]()
+                    # new_obj = classname()
+                    new_obj.save()
                 print(new_obj.id)
             else:
                 print("** class doesn't exist **")
