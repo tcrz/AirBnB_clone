@@ -53,9 +53,16 @@ class HBNBCommand(cmd.Cmd):
             print(count)
         elif arg_list2[0] in globals() and arg_list2[1] == "show" and \
                 arg_list2[2]:
-            obj_key = arg_list2[0] + '.' + shlex.split(arg_list2[2])[0]
-            all_objs = storage.all()
-            print(all_objs[obj_key])
+            try:
+                obj_key = arg_list2[0] + '.' + shlex.split(arg_list2[2])[0]
+                all_objs = storage.all()
+                print(all_objs[obj_key])
+            except IndexError:
+                print("** instance id missing **")
+            except NameError:
+                print("** class doesn't exist **")
+            except KeyError:
+                print("** no instance found **")
         else:
             return cmd.Cmd.default(self, arg)
 
