@@ -34,14 +34,21 @@ class HBNBCommand(cmd.Cmd):
 
     def default(self, arg):
         arg_list = arg.split(".")
+        objs_list = []
+        count = 0
+        all_objs = storage.all()
         if arg_list[0] in globals() and arg_list[1] == "all()":
-            objs_list = []
-            all_objs = storage.all()
             classname = globals()[arg_list[0]]
             for obj in all_objs.values():
                 if isinstance(obj, classname):
                     objs_list.append(str(obj))
             print(objs_list)
+        elif arg_list[0] in globals() and arg_list[1] == "count()":
+            classname = globals()[arg_list[0]]
+            for obj in all_objs.values():
+                if isinstance(obj, classname):
+                    count += 1
+            print(count)
         else:
             return cmd.Cmd.default(self, arg)
 
