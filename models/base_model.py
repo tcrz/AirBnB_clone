@@ -11,8 +11,6 @@ class BaseModel():
     """Base Model"""
     def __init__(self, *args, **kwargs):
         """initialize instance of BaseModel class"""
-        if args: 
-            pass
         if kwargs:
             for key, value in kwargs.items():
                 if key == 'updated_at':
@@ -34,13 +32,13 @@ class BaseModel():
 
     def save(self):
         """updates the public instance attribute 'updated_at'
-        with the current datetime"""
+with the current datetime"""
         self.updated_at = datetime.now()
         storage.save()
 
     def to_dict(self):
         """returns a dictionary containing all keys/values
-        of __dict__ of the instance"""
+of __dict__ of the instance"""
         obj_dict = {}
         obj_dict.update(self.__dict__)
         obj_dict['__class__'] = self.__class__.__name__
