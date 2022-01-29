@@ -17,7 +17,7 @@ class BaseModel():
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
                 if key == 'created_at':
                     value = datetime.strptime(value, '%Y-%m-%dT%H:%M:%S.%f')
-                if key != '__class__' and key != 'created_at' and key != 'updated_at':
+                if key != '__class__':
                     setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
