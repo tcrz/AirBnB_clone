@@ -20,7 +20,7 @@ class TestBaseClass(unittest.TestCase):
         """style test"""
         pep_style = pep8.StyleGuide(quiet=True)
         error_check = pep_style.check_files(['models/place.py'])
-        self.assertEqual(error_check, 0)
+        self.assertEqual(error_check.total_errors, 0)
 
     def test_attr(self):
         """test attributes"""
