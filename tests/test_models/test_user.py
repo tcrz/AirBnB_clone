@@ -9,6 +9,7 @@ from datetime import datetime
 from io import StringIO
 import pep8
 
+
 class TestBaseClass(unittest.TestCase):
     def test_classtype(self):
         """tests class type"""
@@ -17,9 +18,9 @@ class TestBaseClass(unittest.TestCase):
 
     def test_for_style(self):
         """style test"""
-        style = pep8.StyleGuide(quiet=True)
-        chk = style.check_files(['models/user.py'])
-        self.assertEqual(chk.total_errors, 0, "fix pep8")
+        pep_style = pep8.StyleGuide(quiet=True)
+        error_check = pep_style.check_files(['models/user.py'])
+        self.assertEqual(error_check, 0)
 
     def test_attr(self):
         """test attributes"""
