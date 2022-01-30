@@ -19,9 +19,9 @@ class TestBaseClass(unittest.TestCase):
     def test_for_style(self):
         """style test"""
         pep_style = pep8.StyleGuide(quiet=True)
-        error_check = pep_style.check_files(['models/base_model.py'])
+        err = pep_style.check_files(['models/base_model.py'])
         # self.assertTrue(error_check is pep_style.check_files(['models/engine/file_storage.py']))
-        self.assertEqual(chk.total_errors, 0, "fix pep8")
+        self.assertEqual(err.total_errors, 0, "fix pep8")
 
     def test_attr(self):
         """test attributes"""
