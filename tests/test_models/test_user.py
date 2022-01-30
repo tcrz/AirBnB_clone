@@ -4,6 +4,7 @@ Unittest for User Class
 """
 import contextlib
 from models.user import User
+from models.base_model import BaseModel
 import unittest
 from datetime import datetime
 from io import StringIO
@@ -14,6 +15,17 @@ class TestBaseClass(unittest.TestCase):
         """tests class type"""
         my_user = User()
         self.assertIsInstance(my_user, User)
+
+    def test_docstring(self):
+        """checks for docstring"""
+        self.assertIsNotNone(User.__doc__)
+
+    def test_attributes_type(self):
+        """check that class"""
+        my_model = BaseModel()
+        self.assertIsInstance(my_model.id, str)
+        self.assertIsInstance(my_model.created_at, datetime)
+        self.assertIsInstance(my_model.updated_at, datetime)
 
     def test_attr(self):
         """test attributes"""
