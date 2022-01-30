@@ -7,7 +7,7 @@ from models.user import User
 import unittest
 from datetime import datetime
 from io import StringIO
-# import pep8
+import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -21,6 +21,10 @@ class TestBaseClass(unittest.TestCase):
         pep_style = pep8.StyleGuide(quiet=True)
         error_check = pep_style.check_files(['models/user.py'])
         self.assertEqual(error_check, 0)
+
+    def test_docstring(self):
+        """checks for docstring"""
+        self.assertIsNotNone(User.__doc__)
 
     def test_attr(self):
         """test attributes"""
