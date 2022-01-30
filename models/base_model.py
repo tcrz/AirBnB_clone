@@ -1,14 +1,13 @@
 #!/usr/bin/python3
-"""
-BaseModel class that defines all common attributes/methods for other classes
-"""
+"""BaseModel class that defines all common attributes/methods
+for other classes"""
 from datetime import datetime
 import uuid
 from models import storage
 
 
 class BaseModel():
-    """Base Model"""
+    """defines a BaseModel class"""
     def __init__(self, *args, **kwargs):
         """initialize instance of BaseModel class"""
         if kwargs:
