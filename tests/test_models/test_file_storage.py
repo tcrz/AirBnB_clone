@@ -9,7 +9,6 @@ import unittest
 
 
 class TestBaseClass(unittest.TestCase):
-    @classmethod
     def setUp(self):
         self.model = BaseModel()
         self.new_model = BaseModel()
