@@ -68,6 +68,27 @@ class HBNBCommand(cmd.Cmd):
                 storage.save()
             except KeyError:
                 print("** no instance found **")
+        elif arg_list2[0] in globals() and arg_list2[1] == "update" and \
+                arg_list2[2] and arg_list2[3] and arg_list2[4]:
+            obj_key = arg_list2[0] + '.' + shlex.split(arg_list2[2])[0]
+            if obj_key in all_objs:
+                new_obj = all_objs[obj_key]
+                if arg_list2[4].isdigit():
+                    arg_list2[4] = int(arg_list2[4])
+                elif type(arg_list2[4]) is str:
+                    arg_list2[4] = shlex.split(arg_list2[4])[0]
+                else:
+                    try:
+                        float(arg_list2[4])
+                        arg_list2[4] = float(arg_list2[4])
+                    except ValueError:
+                        pass
+                setattr(new_obj, shlex.split(arg_list2[3])[0], arg_list2[4])
+                storage.save()
+            else:
+                print("** no instance found **")
+                # else:
+                #     print("** class doesn't exist **")
         else:
             return cmd.Cmd.default(self, arg)
 
