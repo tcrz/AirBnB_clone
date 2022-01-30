@@ -11,7 +11,7 @@ import models
 
 
 class TestBaseClass(unittest.TestCase):
-     """FileStorage Test class"""
+    """FileStorage Test class"""
     def test_for_style(self):
         """style test"""
         style = pep8.StyleGuide(quiet=True)
