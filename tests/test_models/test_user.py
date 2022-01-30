@@ -16,11 +16,11 @@ class TestBaseClass(unittest.TestCase):
         my_user = User()
         self.assertIsInstance(my_user, User)
 
-    # def test_for_style(self):
-    #     """style test"""
-    #     pep_style = pep8.StyleGuide(quiet=True)
-    #     error_check = pep_style.check_files(['models/user.py'])
-    #     self.assertEqual(error_check, 0)
+    def test_for_style(self):
+        """style test"""
+        pep_style = pep8.StyleGuide(quiet=True)
+        error_check = pep_style.check_files(['models/user.py'])
+        self.assertEqual(error_check, 0)
 
     def test_attr(self):
         """test attributes"""
