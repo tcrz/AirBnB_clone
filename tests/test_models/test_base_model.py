@@ -7,6 +7,7 @@ from models.base_model import BaseModel
 import unittest
 from datetime import datetime
 from io import StringIO
+import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -14,6 +15,12 @@ class TestBaseClass(unittest.TestCase):
         """tests class type"""
         my_model = BaseModel()
         self.assertIsInstance(my_model, BaseModel)
+
+    def test_for_style(self):
+        """style test"""
+        pep_style = pep8.StyleGuide(quiet=True)
+        error_check = pep_style.check_files(['models/base_model.py'])
+        self.assertEqual(error_check, 0)
 
     def test_attr(self):
         """test attributes"""

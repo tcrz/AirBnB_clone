@@ -6,6 +6,7 @@ Unittest for Place Class
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import unittest
+import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -13,6 +14,12 @@ class TestBaseClass(unittest.TestCase):
         self.model = BaseModel()
         self.new_model = BaseModel()
         self.store = FileStorage()
+
+    def test_for_style(self):
+        """style test"""
+        pep_style = pep8.StyleGuide(quiet=True)
+        error_check = pep_style.check_files(['models/engine/file_storage.py'])
+        self.assertEqual(error_check, 0)
 
     def test_all(self):
         """test 'all' method attributes"""
