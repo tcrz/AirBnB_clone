@@ -21,7 +21,7 @@ class TestBaseClass(unittest.TestCase):
         pep_style = pep8.StyleGuide(quiet=True)
         error_check = pep_style.check_files(['models/state.py'])
         # self.assertEqual(error_check, 0)
-        self.assertTrue(error_check is pep_style.check_files(['models/engine/file_storage.py']))
+        self.assertTrue(error_check is pep_style.check_files(['models/state.py']))
 
     def test_attr(self):
         """test attributes"""
