@@ -3,7 +3,7 @@
 for other classes"""
 from datetime import datetime
 import uuid
-from . import storage
+from models import storage
 
 
 class BaseModel():
