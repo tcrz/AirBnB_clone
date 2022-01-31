@@ -2,7 +2,7 @@
 """
 Unittest for Place Class
 """
-
+import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
 import unittest
@@ -33,6 +33,7 @@ class TestFileStorageClass(unittest.TestCase):
     def test_save(self):
         """test save method"""
         self.store.save()
+        self.assertEqual(os.path.exists('file.json'), True)
 
     def test_reload(self):
         """test reload method"""
