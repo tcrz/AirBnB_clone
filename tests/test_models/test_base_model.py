@@ -21,6 +21,7 @@ class TestBaseClass(unittest.TestCase):
         uuid_val = my_model.id
         self.assertEqual(my_model.id, uuid_val)
         self.assertIsInstance(my_model.id, str)
+        self.assertTrue(hasattr(BaseModel, "save"))
         created_time = my_model.created_at
         updated_time = my_model.updated_at
         self.assertEqual(created_time, my_model.created_at)
