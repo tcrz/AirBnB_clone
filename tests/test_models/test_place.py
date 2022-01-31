@@ -10,7 +10,7 @@ from io import StringIO
 import pep8
 
 
-class TestBaseClass(unittest.TestCase):
+class TestPlaceClass(unittest.TestCase):
     def test_classtype(self):
         """tests class type"""
         place = Place()
@@ -22,6 +22,17 @@ class TestBaseClass(unittest.TestCase):
         uuid_val = place.id
         self.assertEqual(place.id, uuid_val)
         self.assertIsInstance(place.id, str)
+        self.assertEqual(place.city_id, "")
+        self.assertEqual(place.user_id, "")
+        self.assertEqual(place.name, "")
+        self.assertEqual(place.description, "")
+        self.assertEqual(place.number_rooms, 0)
+        self.assertEqual(place.number_bathrooms, 0)
+        self.assertEqual(place.max_guest, 0)
+        self.assertEqual(place.price_by_night, 0)
+        self.assertEqual(place.latitude, 0.0)
+        self.assertEqual(place.longitude, 0.0)
+        self.assertEqual(place.amenity_ids, [])
         created_time = place.created_at
         updated_time = place.updated_at
         self.assertEqual(created_time, place.created_at)

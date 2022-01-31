@@ -10,7 +10,7 @@ from datetime import datetime
 from io import StringIO
 
 
-class TestBaseClass(unittest.TestCase):
+class TestUserClass(unittest.TestCase):
     def test_classtype(self):
         """tests class type"""
         my_user = User()
@@ -24,6 +24,10 @@ class TestBaseClass(unittest.TestCase):
         self.assertIsInstance(my_user.id, str)
         created_time = my_user.created_at
         updated_time = my_user.updated_at
+        self.assertEqual(my_user.email, "")
+        self.assertEqual(my_user.password, "")
+        self.assertEqual(my_user.first_name, "")
+        self.assertEqual(my_user.last_name, "")
         self.assertEqual(created_time, my_user.created_at)
         self.assertEqual(updated_time, my_user.updated_at)
 
@@ -46,10 +50,6 @@ class TestBaseClass(unittest.TestCase):
         my_user.number = 1
         my_user.save()
         update_time = my_user.updated_at
-        self.assertEqual(my_user.email, "")
-        self.assertEqual(my_user.password, "")
-        self.assertEqual(my_user.first_name, "")
-        self.assertEqual(my_user.last_name, "")
         self.assertEqual(update_time, my_user.updated_at)
         with self.assertRaises(TypeError):
             my_user.save(None)

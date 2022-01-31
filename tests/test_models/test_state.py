@@ -9,7 +9,7 @@ from datetime import datetime
 from io import StringIO
 
 
-class TestBaseClass(unittest.TestCase):
+class TestStateClass(unittest.TestCase):
     def test_classtype(self):
         """tests class type"""
         state = State()
@@ -21,6 +21,7 @@ class TestBaseClass(unittest.TestCase):
         uuid_val = state.id
         self.assertEqual(state.id, uuid_val)
         self.assertIsInstance(state.id, str)
+        self.assertEqual(state.name, "")
         created_time = state.created_at
         updated_time = state.updated_at
         self.assertEqual(created_time, state.created_at)
