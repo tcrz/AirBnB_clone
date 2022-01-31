@@ -34,8 +34,8 @@ class FileStorage():
         # else:
         #     obj_data = dict((k, v.to_dict())
         #                     for k, v in FileStorage.__objects.items())
-        with open(FileStorage.__file_path, mode='w') as file:
-            json.dump(new_data, file, indent=4)
+        with open(FileStorage.__file_path, 'w') as json_file:
+            json.dump(new_data, json_file, indent=4)
 
     def reload(self):
         """deserializes the JSON file to __objects
@@ -43,11 +43,9 @@ class FileStorage():
         from models.base_model import BaseModel
         from models.user import User
         if os.path.exists(FileStorage.__file_path):
-            with open(FileStorage.__file_path) as file:
-                json_str = json.load(file)
+            with open(FileStorage.__file_path) as json_file:
+                json_str = json.load(json_file)
             for k, v in json_str.items():
                 # if v["__class__"] in globals():
                 #     classname = globals()[v["__class__"]]
                 FileStorage.__objects[k] = BaseModel(**v)
-        else:
-            pass
