@@ -7,7 +7,6 @@ from models.amenity import Amenity
 import unittest
 from datetime import datetime
 from io import StringIO
-import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -15,12 +14,6 @@ class TestBaseClass(unittest.TestCase):
         """tests class type"""
         amenity = Amenity()
         self.assertIsInstance(amenity, Amenity)
-
-    def test_for_style(self):
-        """style test"""
-        pep_style = pep8.StyleGuide(quiet=True)
-        error_check = pep_style.check_files(['models/amenity.py'])
-        self.assertTrue(error_check is pep_style.check_files(['models/amenity.py']))
 
     def test_attr(self):
         """test attributes"""
@@ -43,7 +36,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertFalse(amenity is my_new_model)
         self.assertEqual(my_new_model.name, "New Model")
         self.assertEqual(my_new_model.my_number, 201)
-        # unfinished
 
     def test_save_method(self):
         """test save method"""
@@ -64,7 +56,6 @@ class TestBaseClass(unittest.TestCase):
             obj_print = amenity.__str__()
             print(amenity)
         output = temp_stdout.getvalue().strip()
-        # print(output)
         self.assertEqual(output, obj_print)
 
     def test_to_dict(self):

@@ -7,7 +7,6 @@ from models.city import City
 import unittest
 from datetime import datetime
 from io import StringIO
-import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -15,13 +14,6 @@ class TestBaseClass(unittest.TestCase):
         """tests class type"""
         city = City()
         self.assertIsInstance(city, City)
-
-    def test_for_style(self):
-        """style test"""
-        pep_style = pep8.StyleGuide(quiet=True)
-        error_check = pep_style.check_files(['models/city.py'])
-        self.assertTrue(error_check is pep_style.check_files(['models/city.py']))
-        # self.assertEqual(error_check, 0)
 
     def test_attr(self):
         """test attributes"""

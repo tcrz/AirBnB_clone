@@ -7,7 +7,6 @@ from models.base_model import BaseModel
 import unittest
 from datetime import datetime
 from io import StringIO
-import pep8
 
 
 class TestBaseClass(unittest.TestCase):
@@ -15,13 +14,6 @@ class TestBaseClass(unittest.TestCase):
         """tests class type"""
         my_model = BaseModel()
         self.assertIsInstance(my_model, BaseModel)
-
-    def test_for_style(self):
-        """style test"""
-        pep_style = pep8.StyleGuide(quiet=True)
-        err = pep_style.check_files(['models/base_model.py'])
-        # self.assertTrue(error_check is pep_style.check_files(['models/engine/file_storage.py']))
-        self.assertEqual(err, 0, "fix pep8")
 
     def test_attr(self):
         """test attributes"""
@@ -44,7 +36,6 @@ class TestBaseClass(unittest.TestCase):
         self.assertFalse(my_model is my_new_model)
         self.assertEqual(my_new_model.name, "New Model")
         self.assertEqual(my_new_model.my_number, 201)
-        # unfinished
 
     def test_save_method(self):
         """test save method"""
@@ -65,7 +56,6 @@ class TestBaseClass(unittest.TestCase):
             obj_print = my_model.__str__()
             print(my_model)
         output = temp_stdout.getvalue().strip()
-        # print(output)
         self.assertEqual(output, obj_print)
 
     def test_to_dict(self):

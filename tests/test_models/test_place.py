@@ -16,13 +16,6 @@ class TestBaseClass(unittest.TestCase):
         place = Place()
         self.assertIsInstance(place, Place)
 
-    def test_for_style(self):
-        """style test"""
-        pep_style = pep8.StyleGuide(quiet=True)
-        error_check = pep_style.check_files(['models/place.py'])
-        self.assertTrue(error_check is pep_style.check_files(['models/place.py']))
-        # self.assertEqual(error_check, 0)
-
     def test_attr(self):
         """test attributes"""
         place = Place()
