@@ -9,12 +9,6 @@ import unittest
 
 
 class TestBaseClass(unittest.TestCase):
-    def test_instances(self):
-        """checks save and reload"""
-        obj = BaseModel()
-        models.storage.save()
-        self.assertEqual(os.path.exists('file.json'), True)
-
     def setUp(self):
         self.model = BaseModel()
         self.new_model = BaseModel()
