@@ -8,11 +8,15 @@ from models.engine.file_storage import FileStorage
 import unittest
 
 
-class TestBaseClass(unittest.TestCase):
+class TestFileStorageClass(unittest.TestCase):
     def setUp(self):
         self.model = BaseModel()
         self.new_model = BaseModel()
         self.store = FileStorage()
+
+    def test_attrs(self):
+        self.assertEqual(self.store._FileStorage__file_path, "file.json")
+        self.assertIsInstance(self.store._FileStorage__objects, dict)
 
     def test_all(self):
         """test 'all' method attributes"""
