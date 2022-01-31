@@ -3,8 +3,9 @@
 
 import json
 from os.path import exists
+from models.base_model import BaseModel
 
-class FileStorage:
+'''class FileStorage:
 
     __file_path = "file.json"
     __objects = {}
@@ -33,6 +34,6 @@ class FileStorage:
 
         if file_exists:
             with open(file_exists, 'r') as f:
-                json.load(f)
+                data = json.load(f)
         else:
-            pass
+            pass'''

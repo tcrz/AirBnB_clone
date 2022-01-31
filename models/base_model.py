@@ -3,7 +3,6 @@
 
 import uuid
 import datetime
-from . import storage
 
 class BaseModel():
 
@@ -43,5 +42,3 @@ class BaseModel():
         self.__dict__['created_at'] = self.created_at.isoformat()
         self.__dict__['updated_at'] = self.updated_at.isoformat()
         return self.__dict__
-
-
