@@ -46,6 +46,10 @@ class TestBaseClass(unittest.TestCase):
         my_user.number = 1
         my_user.save()
         update_time = my_user.updated_at
+        self.assertEqual(my_user.email, "")
+        self.assertEqual(my_user.password, "")
+        self.assertEqual(my_user.first_name, "")
+        self.assertEqual(my_user.last_name, "")
         self.assertEqual(update_time, my_user.updated_at)
         with self.assertRaises(TypeError):
             my_user.save(None)
