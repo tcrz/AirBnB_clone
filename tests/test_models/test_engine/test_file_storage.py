@@ -5,6 +5,8 @@ Unittest for Place Class
 import os
 from models.base_model import BaseModel
 from models.engine.file_storage import FileStorage
+from models.base_model import BaseModel
+import models
 import unittest
 
 
@@ -32,6 +34,9 @@ class TestFileStorageClass(unittest.TestCase):
 
     def test_save(self):
         """test save method"""
+        obj = BaseModel()
+        models.storage.save()
+        self.assertEqual(os.path.exists('file.json'), True)
         self.store.save()
         self.assertEqual(os.path.exists('file.json'), True)
 
