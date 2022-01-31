@@ -18,7 +18,7 @@ class TestBaseClass(unittest.TestCase):
     #     chk = style.check_files(['models/engine/file_storage.py'])
     #     self.assertEqual(chk.total_errors, 0, "fix pep8")
 
-     def test_docstring(self):
+    def test_docstring(self):
         """checks for docstring"""
         self.assertIsNotNone(FileStorage.all.__doc__)
         self.assertIsNotNone(FileStorage.new.__doc__)
