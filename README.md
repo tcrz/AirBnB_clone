@@ -12,7 +12,7 @@ The AirBnB website operates an online marketplace for travel information and boo
 
 * <b>console.py</b> file is the entry point of our command interpreter.
 
-* <b>models/base_model.py</b> file is the base class of all our models. It contains common elements:
+* <b>models/base_model.py</b> file is the base class of all our models(contained in/models). It contains common elements:
 
 * <b>attributes:</b> id, created_at and updated_at
 
@@ -20,17 +20,54 @@ The AirBnB website operates an online marketplace for travel information and boo
 
 * <b>models/engine</b> directory will contain all storage classes (using the same prototype). For the moment you will have only one: file_storage.py**
 
-<h2> Steps </h2>
-
-<h3>The console</h3>
-
-* create your data model
+<h2> File Storage Engine </h2> 
+This involves:
+* creating your data model(parent and subclasses)
 * manage (create, update, destroy, etc) objects via a console / command interpreter
 * store and persist objects to a file (JSON file)
 
-The first piece is to manipulate a powerful storage system. This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This means: from your console code (the command interpreter itself) and from the front-end and RestAPI you will build later, you won’t have to pay attention (take care) of how your objects are stored.
+This storage engine will give us an abstraction between “My object” and “How they are stored and persisted”. This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
+The console(CLI) will be a tool to validate this storage engine. This CLI will be used to make operations on Classes involving creating instances, destroying them, amont many other commands. This project uses python library, `cmd` to create an interactive command line interface. Commands performed on classes and instances reflect accordingly on ```file.json```. ecample: ```create BaseModel``` will serialize an instance and save it to ```file.json```
 
-This abstraction will also allow you to change the type of storage easily without updating all of your codebase.
+ 
+ 
+#### How to start the CLI(Console)
+```
+$ ./console.py
+```
+#### How to use it
+#### For a detailed description of all tests, run these commands in the CLI:
+The help command gives info on how to use each command:
 
-The console will be a tool to validate this storage engine.
+```
+(hbnb) help
+
+Documented commands (type help <topic>):
+========================================
+EOF  all  create  destroy  help  quit  show  update
+
+
+(hbnb) help create
+Creates a new instance of specified, saves it amd prints its id
+```
+
+[Example] Run a command:
+```
+(hbnb) create Amenity
+b99ef20a-4de5-4574-9178-e11aee525ff3
+```
+ 
+
+* Other Commands in the CLI may also be executed with this syntax(these commands work similarly to those above):
+  * **count:** `<class name>.count()` --counts instances of specified class
+
+  * **update:** `<class name>.update(<id>, <attribute name>, <attribute value>)`
+ 
+  * **show:** `<class name>.show(<id>)`
+
+  * **all:** `<class name>.all()`
+
+  * **destroy:** `<class name>.destroy(<id>)`
+
+  * **update:** `<class name>.update(<id>, <attribute name>, <attribute value>)`
 
