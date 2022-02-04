@@ -1,5 +1,5 @@
 section.filters{
-    color:white;
+    background-color:white;
     height:70px;
     width: 100%;
     border: 1px solid#DDDDDD;
@@ -7,10 +7,9 @@ section.filters{
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    
 }
 
-.filters button{
+section.filters button{
     font-size: 18px;
     background-color: #FF5A5F;
     color: #FFFFFF;
@@ -21,6 +20,6 @@ section.filters{
     margin-right: 30px;
 }
 
-.filters button:hover{
+section.filters button:hover{
     opacity: 90%;
 }
