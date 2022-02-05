@@ -1,6 +1,14 @@
 .container .places{
     margin-left: 15px;
 }
+
+.places-flex{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items:center;
+}
+
 .container .places h1{
     text-align: left;
     font-size: 30px;
@@ -14,12 +22,12 @@
     border-radius: 4px;
 }
 
-
 .container .places article h2{
     font-size: 30px;
     text-align: center;
 }
 
-footer{
-    position: static;
+.sub-flex{
+    display:flex;
+    justify-content: center;
 }
