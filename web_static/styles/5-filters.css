@@ -37,12 +37,12 @@
     border-right: 1px solid #DDDDDD;
 }
 
-.container h3{
+.container .filters h3{
     font-weight: 600;
     margin: 0 30px;
 }
 
-.container h4{
+.container .filters h4{
     margin: 0 30px;
     font-weight: 400;
     font-size: 14px;
