@@ -15,6 +15,7 @@
 }
 
 .places h1{
+    margin-bottom: 0;
     text-align: left;
     font-size: 30px;
 }
@@ -83,7 +84,7 @@
 }
 
 .places .description{
-    height: 150px
+    height: 150px;
 }
 
 footer{
