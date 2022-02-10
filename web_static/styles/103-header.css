@@ -1,0 +1,18 @@
+header {
+    background-color: white;
+    height: 70px;
+    width: 100%;
+    border-bottom: 1px solid #CCCCCC;
+    background-image: url('/images/logo.png');
+    background-repeat: no-repeat;
+    background-position: left;
+    background-position-x: 20px;
+}
+
+@media (min-width: 320px) and (max-width:480px){
+    header {
+        height: 50px;
+        background-size: 110px;
+        background-position-x: 10px;
+    }
+}

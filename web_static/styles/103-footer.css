@@ -1,0 +1,17 @@
+footer{
+    background-color:white;
+    height:60px;
+    width:100%;
+    border-top: 1px solid #CCCCCC;
+    text-align:center;
+    line-height:60px;
+    position:absolute;
+    bottom:0%;
+}
+
+@media (min-width: 320px) and (max-width:480px) {
+    footer {
+        height: 40px;
+        line-height:40px;
+    }
+}
